@@ -6,6 +6,7 @@ const app = express();
  
 //routes
 app.use(require('./routes/usuario'));
+app.use(require('./routes/vuelo'));
 
 const port = 3000;
 app.listen(port, () => {console.log("conexion en el puerto 3000");});

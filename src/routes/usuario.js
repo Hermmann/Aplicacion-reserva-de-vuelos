@@ -6,10 +6,10 @@ const {creteUser} = require('../controllers/usuario')
 const {updateUser} = require('../controllers/usuario');
 const {deleteUser} = require('../controllers/usuario');
 
-router.get('/user',getUsers);
-router.post('/user', creteUser);
-router.put('/user', updateUser);
-router.delete('/user', deleteUser);
+router.get('/usuario',getUsers);
+router.post('/usuario', creteUser);
+router.put('/usuario', updateUser);
+router.delete('/usuario', deleteUser);
 
 
 
