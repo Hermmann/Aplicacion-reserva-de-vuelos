@@ -1,6 +1,26 @@
 const { supabase } = require("../supabase/client");
 
+const updateUser = async (req, res) => {
+  try {
+    const {nombre, email} = req.body;
+    const {user_id} = req.query;
 
+    const { data, error } = await supabase
+      .from('usuarios').update({ nombre, email })
+      .eq('user_id', user_id);
+
+    if (error) {
+      throw error;
+    }
+
+    res.status(200).send(data);
+    //return(data);
+
+  } catch (error) {
+    res.status(500).json({message: "Error en el servidor"});
+  }
+
+}
 
 const creteUser = async (req, res ) => {
   try {
@@ -45,4 +65,5 @@ const getUsers = async (req, res) => {
 module.exports = {
     getUsers,
     creteUser,
+    updateUser,
 }
