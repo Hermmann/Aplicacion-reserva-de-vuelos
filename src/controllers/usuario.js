@@ -2,17 +2,53 @@ const { supabase } = require("../supabase/client");
 
 const deleteUser = async (req, res) => {
   try {
-    const { user_id } = req.query;
+    const { user_id, email } = req.query;
 
-    const { data, error } = await supabase
-    .from('usuarios').delete().eq('user_id', user_id);
+    if (user_id && email) {
+      //console.log(email);
+      const { data, error } = await supabase
+        .from('usuarios')
+        .delete()
+        .or(`user_id.eq.${user_id},email.eq.${email}`);
 
-    if (error) {
-      throw error;
+      if (error) {
+        throw error;
+      }
+      
+      //return data;
+      res.status(200).send(data);
+    } else if (user_id) {
+      const { data, error } = await supabase
+        .from('usuarios')
+        .delete()
+        .eq('user_id', user_id);
+        console.log("data",data);
+      if (error) {
+        throw error;
+      }
+
+      //return data;
+      res.status(200).send(data);
+    } else if (email) {
+      console.log(email);
+      const { data, error } = await supabase
+        .from('usuarios')
+        .delete()
+        .eq('email', email);
+
+      if (error) {
+        throw error;
+      }
+
+      //return data;
+      res.status(200).send(data);
+    } else {
+      throw new Error('Please provide either user_id or email');
     }
-    res.status(200).send(data);
-  } catch (error) {
+
     
+  } catch (error) {
+    res.status(500).json({message: "Error en el servidor al borrar usuario"});
   }
 }
 
