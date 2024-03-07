@@ -1,12 +1,12 @@
 Intruciones.
 
 Instalar los siguientes paquetes:
-  -npm init -y
-  -npm i express --save
-  -npm i nodemon --save
-  -npm i @supabase/supabase-js 
-  -npm i dotenv -D
-  -npm i nodemon -D
+  npm init -y
+  npm i express --save
+  npm i nodemon --save
+  npm i @supabase/supabase-js 
+  npm i dotenv -D
+  npm i nodemon -D
   
 usar su simulacion de llamadas de api preferido:
   -use Thunder Client
