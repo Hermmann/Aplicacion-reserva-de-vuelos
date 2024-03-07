@@ -25,5 +25,5 @@ operaciones CRUD.
     http://localhost:3000/reservas?reserva_id= (DELETE Cancelar una reserva basada en el id)
     http://localhost:3000/reservas (GET de todas las reservas)
 
-    nota: Fallo de la aplicación al crear una reserva, la escribe en base de datos una vez y después se crashea,
+  nota: Fallo de la aplicación al crear una reserva, la escribe en base de datos una vez y después se crashea,
           no encontré como solucionar esa parte hasta el momento.
