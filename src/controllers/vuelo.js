@@ -45,7 +45,7 @@ const getFlights = async (req, res) => {
 const createFlight = async (req, res ) => {
     try {
       const {origen, destino, fecha_salida} = req.body;
-  console.log(origen,destino,fecha_salida);
+  //console.log(origen,destino,fecha_salida);
       const {data, error} = await supabase
       .from('vuelos').insert([{origen, destino,fecha_salida}]);
     

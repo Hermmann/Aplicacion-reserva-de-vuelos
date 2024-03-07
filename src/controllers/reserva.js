@@ -14,9 +14,8 @@ const deleteReserva = async (req, res) => {
       return;
     }
 
-  
-    
     res.status(200).json({ msg: 'Reserva eliminada correctamente' });
+    
   } catch (error) {
     console.error('Error deleting reserva:', error.message);
     res.status(500).json({ msg: 'Error en el servidor' });

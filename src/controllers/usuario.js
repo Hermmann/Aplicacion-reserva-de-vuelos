@@ -85,8 +85,8 @@ const creteUser = async (req, res ) => {
       throw error;
     }
 
-    console.log(data);
-    res.status(200).send(data);
+    //console.log(data);
+    res.status(200).json({ msg: 'Usuario creado' });
     
     return data;
   } catch (error) {
