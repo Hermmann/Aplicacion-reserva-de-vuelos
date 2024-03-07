@@ -84,9 +84,11 @@ const creteUser = async (req, res ) => {
     if (error) {
       throw error;
     }
+
+    console.log(data);
     res.status(200).send(data);
     
-    //return data;
+    return data;
   } catch (error) {
     console.error('Error al crear un usuario');
   }
