@@ -1,5 +1,28 @@
 const { supabase } = require("../supabase/client");
 
+const deleteReserva = async (req, res) => {
+  try {
+    const { reserva_id } = req.query;
+
+    const { data, error } = await supabase
+      .from('reservas')
+      .delete()
+      .eq('reservation_id', reserva_id);
+
+    if (error) {
+      res.status(500).json({ msg: 'Error en el servidor' });
+      return;
+    }
+
+  
+    
+    res.status(200).json({ msg: 'Reserva eliminada correctamente' });
+  } catch (error) {
+    console.error('Error deleting reserva:', error.message);
+    res.status(500).json({ msg: 'Error en el servidor' });
+  }
+}
+
 const getReservas = async (req, res) => {
   //res.send('users');
   try {
@@ -119,4 +142,5 @@ module.exports = {
   createReservation, 
   getReservarsById,
   getReservas,
+  deleteReserva,
 }

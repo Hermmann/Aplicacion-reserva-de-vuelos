@@ -16,7 +16,7 @@ const deleteUser = async (req, res) => {
       }
       
       //return data;
-      res.status(200).send(data);
+      res.status(200).json({msg:  'Usuarion eliminado correctamente'});
     } else if (user_id) {
       const { data, error } = await supabase
         .from('usuarios')
