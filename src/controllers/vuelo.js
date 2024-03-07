@@ -7,8 +7,6 @@ const getAbleFlight = async (req, res) => {
     const { data, error} = await supabase
     .from('vuelos').select().eq('disponible', true);
 
-    
-    
     if (error) {
       throw error;   
     }
